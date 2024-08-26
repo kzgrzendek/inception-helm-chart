@@ -3,6 +3,27 @@ entries:
   inception:
   - apiVersion: v2
     appVersion: "33.3"
+    created: "2024-08-26T08:45:57.496949192Z"
+    dependencies:
+    - alias: mariadb
+      condition: mariadb.enabled
+      name: mariadb
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 19.0.1
+    description: A semantic annotation platform offering intelligent assistance and
+      knowledge management.
+    digest: 8b155f94f089b9cc9e0f4692fb6cc6bc11a70fe78aaa99650b0d2457707c3bbe
+    home: https://inception-project.github.io
+    kubeVersion: '>=v1.24.0-0'
+    name: inception
+    sources:
+    - https://github.com/inception-project/inception
+    type: application
+    urls:
+    - https://github.com/kzgrzendek/inception-helm-chart/releases/download/inception-1.0.0-alpha2/inception-1.0.0-alpha2.tgz
+    version: 1.0.0-alpha2
+  - apiVersion: v2
+    appVersion: "33.3"
     created: "2024-08-23T07:35:54.910076668Z"
     dependencies:
     - alias: mariadb
@@ -22,4 +43,4 @@ entries:
     urls:
     - https://github.com/kzgrzendek/inception-helm-chart/releases/download/inception-1.0.0-alpha/inception-1.0.0-alpha.tgz
     version: 1.0.0-alpha
-generated: "2024-08-23T07:35:54.910086286Z"
+generated: "2024-08-26T08:45:57.496962267Z"
