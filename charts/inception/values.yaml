@@ -414,6 +414,18 @@ mariadb:
 
   # MariaDB primary server settings.
   primary: 
+
+    # -- Extra environment variables to be set on MariaDB primary containers.
+    # @default -- Enforce a 4-byte UTF-8 character set and and a 
+    #             case sensitive collation according to the 
+    #             [INCEpTION Administration Guide](https://inception-project.github.io/releases/33.5/docs/admin-guide.html#_prepare_database)
+    # @section -- INCEpTION's database deployment settings
+    extraEnvVars:
+    - name: "MARIADB_CHARACTER_SET"
+      value: "utf8mb4"
+    - name: "MARIADB_COLLATE"
+      value: "utf8mb4_bin"
+      
     # MariaDB service exposition settings.
     service:
       # Service ports settings.
@@ -421,45 +433,6 @@ mariadb:
         # -- Mariadb `mysql`port.
         # @section -- INCEpTION's database deployment settings
         mysql: 3306
-
-    # -- MariaDB Primary configuration to be injected as ConfigMap.
-    # @default -- Enforce UTF8 character set.
-    # @section -- INCEpTION's database deployment settings
-    configuration: |-
-      [mysql]
-      default-character-set = utf8mb4
-
-      [mysqld]
-      skip-name-resolve
-      explicit_defaults_for_timestamp
-      basedir=/opt/bitnami/mariadb
-      datadir=/bitnami/mariadb/data
-      plugin_dir=/opt/bitnami/mariadb/plugin
-      port=3306
-      socket=/opt/bitnami/mariadb/tmp/mysql.sock
-      tmpdir=/opt/bitnami/mariadb/tmp
-      max_allowed_packet=16M
-      bind-address=*
-      pid-file=/opt/bitnami/mariadb/tmp/mysqld.pid
-      log-error=/opt/bitnami/mariadb/logs/mysqld.log
-      slow_query_log=0
-      long_query_time=10.0
-
-      character-set-client-handshake = FALSE
-      character-set-server = utf8mb4
-      collation-server = utf8mb4_bin
-
-      [client]
-      port=3306
-      socket=/opt/bitnami/mariadb/tmp/mysql.sock
-      default-character-set=UTF8
-      plugin_dir=/opt/bitnami/mariadb/plugin
-      default-character-set = utf8mb4
-
-      [manager]
-      port=3306
-      socket=/opt/bitnami/mariadb/tmp/mysql.sock
-
 
   # MariaDB's authentication settings for the custom database.
   auth:
