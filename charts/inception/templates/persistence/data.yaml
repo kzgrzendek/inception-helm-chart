@@ -2,6 +2,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ include "inception.persistence.pvc.name" . }}
+  annotations:
+    helm.sh/resource-policy: keep
+spec:
 spec:
   storageClassName: {{ .Values.persistence.data.storageClassName }}
   accessModes:
