@@ -140,6 +140,26 @@ auth:
     # -- OAuth2 claim holding the username attribute.
     # @section -- INCEpTION authentication settings
     usernameAttribute: ""
+    # Enables OAuth2 custom claims mapping to INCEpTION roles.
+    roleMapping:
+      # -- # -- Enables OAuth2 custom claims mapping to INCEpTION's roles.
+      # @section -- INCEpTION authentication settings
+      enabled: false
+      # -- OAuth2 claim holding the mapping informations (ex : groups, or roles).
+      # @section -- INCEpTION authentication settings
+      claim: ""
+      # -- OAuth2 claim value to map to INCEpTION's `Admin` role.
+      # @section -- INCEpTION authentication settings
+      adminRole: ""
+      # -- OAuth2 claim value to map to INCEpTION's `User` role.
+      # @section -- INCEpTION authentication settings
+      userRole: ""
+      # -- OAuth2 claim value to map to INCEpTION's `Project Creator` role.
+      # @section -- INCEpTION authentication settings
+      projectCreatorRole: ""
+      # -- OAuth2 claim value to map to INCEpTION's `Remote` role.
+      # @section -- INCEpTION authentication settings
+      remoteRole: ""
 
   # SAML2 Authentication settings (see [dedicated INCEpTION documentation](https://inception-project.github.io/releases/33.2/docs/admin-guide.html#sect_security_authentication_saml2)).
   saml2:
@@ -352,9 +372,13 @@ persistence:
     # -- Requested volume size.
     # @section -- INCEpTION deployment settings
     size: "5Gi"
-    # -- Persistent Volume Claim Access Mode
+    # -- Persistent Volume Claim Access Mode.
     # @section -- INCEpTION deployment settings
     accessMode: ReadWriteOnce
+    # -- Existing Persistent Volume Claim (PVC) to use.
+    #    Overrides `storageClassName`, `size` and `accessMode`.
+    # @section -- INCEpTION deployment settings 
+    existingClaim: ""
 
 # Network Policies settings.
 networkPolicies:

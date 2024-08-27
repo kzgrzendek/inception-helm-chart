@@ -133,7 +133,7 @@ spec:
             name: {{ include "inception.configmap.appConf.name" . }}
         - name: inception-data
           persistentVolumeClaim:
-            claimName: {{ include "inception.persistence.pvc.name" . }}
+            claimName: {{ default (include "inception.persistence.pvc.name" .) .Values.persistence.data.existingClaim }}
         - name: inception-tmp
           emptyDir:
             sizeLimit: 1Gi
