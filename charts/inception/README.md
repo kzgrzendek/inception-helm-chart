@@ -1,6 +1,6 @@
 # inception
 
-![Version: 1.0.0-alpha3](https://img.shields.io/badge/Version-1.0.0--alpha3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 33.3](https://img.shields.io/badge/AppVersion-33.3-informational?style=flat-square)
+![Version: 1.0.0-alpha6](https://img.shields.io/badge/Version-1.0.0--alpha6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 33.3](https://img.shields.io/badge/AppVersion-33.3-informational?style=flat-square)
 
 A semantic annotation platform offering intelligent assistance and knowledge management.
 
@@ -79,7 +79,9 @@ replicas and automatic scaling have been disabled in the values section.
 | auth.oauth2.enabled | bool | `false` | Enabled OAuth2 SSO login. |
 | auth.oauth2.autoLogin | bool | `false` | Enables OAuth2 as default login method (skips INCEpTION's default login page). |
 | auth.oauth2.clientName | string | `""` | OAuth2 client name, to be displayed on INCEpTION's login page. |
-| auth.oauth2.clientID | string | `""` | OAUth2 client ID. |
+| auth.oauth2.clientID.value | string | `""` | OAuth2 client ID in plain text.    Ignored if a reference to an external secret is specified. |
+| auth.oauth2.clientID.existingSecret.secretName | string | `""` | Name of the secret holding the OAuth2 client ID's value. |
+| auth.oauth2.clientID.existingSecret.secretKey | string | `""` | Key inside the secret holding the OAuth2 ID's value. |
 | auth.oauth2.clientSecret.value | string | `""` | OAuth2 client secret in plain text (**NOT RECOMMENDED FOR PRODUCTION**).    Ignored if a reference to an external secret is specified. |
 | auth.oauth2.clientSecret.existingSecret.secretName | string | `""` | Name of the secret holding the OAuth2 client secret value. |
 | auth.oauth2.clientSecret.existingSecret.secretKey | string | `""` | Key inside the secret holding the OAuth2 secret's value. |

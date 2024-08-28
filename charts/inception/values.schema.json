@@ -46,7 +46,23 @@
                             "type": "boolean"
                         },
                         "clientID": {
-                            "type": "string"
+                            "properties": {
+                                "existingSecret": {
+                                    "properties": {
+                                        "secretKey": {
+                                            "type": "string"
+                                        },
+                                        "secretName": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
                         },
                         "clientName": {
                             "type": "string"

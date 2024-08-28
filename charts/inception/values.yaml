@@ -108,9 +108,20 @@ auth:
     # -- OAuth2 client name, to be displayed on INCEpTION's login page.
     # @section -- INCEpTION authentication settings
     clientName: ""
-    # -- OAUth2 client ID.
-    # @section -- INCEpTION authentication settings
-    clientID: ""
+    # OAUth2 client ID.
+    clientID:
+      # -- OAuth2 client ID in plain text.
+      #    Ignored if a reference to an external secret is specified.
+      # @section -- INCEpTION authentication settings
+      value: ""
+      # Reference to an external Kubernetes secret in the same namespace holding the OAuth2 client ID's value.
+      existingSecret: 
+        # -- Name of the secret holding the OAuth2 client ID's value.
+        # @section -- INCEpTION authentication settings
+        secretName: ""
+        # -- Key inside the secret holding the OAuth2 ID's value.
+        # @section -- INCEpTION authentication settings
+        secretKey: ""
     # OAuth2 client secret.
     clientSecret:
       # -- OAuth2 client secret in plain text (**NOT RECOMMENDED FOR PRODUCTION**).
