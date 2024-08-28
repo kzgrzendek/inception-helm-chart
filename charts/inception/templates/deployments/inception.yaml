@@ -60,6 +60,11 @@ spec:
                 name: {{ default (include "inception.secret.databaseAuth.name" .) .Values.config.database.auth.password.existingSecret.secretName }}
                 key: {{ default "password" .Values.config.database.auth.password.existingSecret.secretkey }}
           {{- if .Values.auth.oauth2.enabled }}
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: {{ default (include "inception.secret.oauth2.name" .) .Values.auth.oauth2.clientID.existingSecret.secretName }}
+                key: {{ default "clientID" .Values.auth.oauth2.clientID.existingSecret.secretKey }}
           - name: OIDC_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
