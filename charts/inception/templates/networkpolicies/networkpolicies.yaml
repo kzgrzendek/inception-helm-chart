@@ -19,7 +19,6 @@ spec:
       port: {{ .Values.config.database.port }}
 
     # Allow dns resolution
-    ports:
     - port: 53
       protocol: UDP
     - port: 53

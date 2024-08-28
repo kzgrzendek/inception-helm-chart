@@ -6,7 +6,6 @@ metadata:
   annotations:
     helm.sh/resource-policy: keep
 spec:
-spec:
   storageClassName: {{ .Values.persistence.data.storageClassName }}
   accessModes:
     - {{ .Values.persistence.data.accessMode }}
