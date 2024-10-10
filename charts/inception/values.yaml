@@ -49,13 +49,13 @@ config:
     # @section -- INCEpTION configuration settings
     serverTimezone: "UTC"
     # Database authentication settings.
-    auth: 
+    auth:
       # -- INCEpTION user name.
       # @section -- INCEpTION configuration settings
       username: "inception"
       # INCEpTION user password.
       password:
-        # -- INCEpTION user password, in plain text (**NOT RECOMMENDED FOR PRODUCTION**). 
+        # -- INCEpTION user password, in plain text (**NOT RECOMMENDED FOR PRODUCTION**).
         #    Ignored if a reference to an external secret is specified.
         # @section -- INCEpTION configuration settings
         value: "t0t4llYSecreT"
@@ -83,8 +83,8 @@ auth:
     # @section -- INCEpTION authentication settings
     username: "admin"
     # Default Administrator password.
-    password: 
-      # -- Password in plain text (**NOT RECOMMENDED FOR PRODUCTION**). 
+    password:
+      # -- Password in plain text (**NOT RECOMMENDED FOR PRODUCTION**).
       #    `bcrypt` hash will be derived from that password and stored in the `settings.properties` file.
       # @section -- INCEpTION authentication settings
       value: "loc@lAdmin!*"
@@ -104,7 +104,7 @@ auth:
     enabled: false
     # -- Enables OAuth2 as default login method (skips INCEpTION's default login page).
     # @section -- INCEpTION authentication settings
-    autoLogin: false 
+    autoLogin: false
     # -- OAuth2 client name, to be displayed on INCEpTION's login page.
     # @section -- INCEpTION authentication settings
     clientName: ""
@@ -115,7 +115,7 @@ auth:
       # @section -- INCEpTION authentication settings
       value: ""
       # Reference to an external Kubernetes secret in the same namespace holding the OAuth2 client ID's value.
-      existingSecret: 
+      existingSecret:
         # -- Name of the secret holding the OAuth2 client ID's value.
         # @section -- INCEpTION authentication settings
         secretName: ""
@@ -129,7 +129,7 @@ auth:
       # @section -- INCEpTION authentication settings
       value: ""
       # Reference to an external Kubernetes secret in the same namespace holding the OAuth2 client secret's value.
-      existingSecret: 
+      existingSecret:
         # -- Name of the secret holding the OAuth2 client secret value.
         # @section -- INCEpTION authentication settings
         secretName: ""
@@ -181,7 +181,7 @@ auth:
     # @section -- INCEpTION authentication settings
     autoLogin: false
     # SAML2 requests signing with external key and certificate.
-    signRequest: 
+    signRequest:
       # -- Enables SAML2 request signing.
       # @section -- INCEpTION authentication settings
       enabled: false
@@ -190,7 +190,7 @@ auth:
       # @section -- INCEpTION authentication settings
       certificateValue: ""
       # -- Private Key value, in plain text (**NOT RECOMMENDED FOR PRODUCTION**).
-      #    Ignored if a reference to an external secret is specified. 
+      #    Ignored if a reference to an external secret is specified.
       # @section -- INCEpTION authentication settings
       privateKeyValue: ""
       # -- Reference to an external Kubernetes TLS secret in the same namespace holding the certificate/private key pair to sign SAML2 requests.
@@ -198,12 +198,12 @@ auth:
       existingTlsSecret: ""
     # Certificate authenticating the Identity Provider in SAML2 connection.
     assertingPartyCertificate:
-      # -- Certificate in plain text. 
+      # -- Certificate in plain text.
       #    Ignored if a reference to an external Secret is specified.
       # @section -- INCEpTION authentication settings
       value: ""
       # Reference to an external Kubernetes Secret in the same namespace holding the Identity Provider certificate.
-      existingSecret: 
+      existingSecret:
         # -- Name of the secret holding the Identity Provider certificate.
         # @section -- INCEpTION authentication settings
         secretName: ""
@@ -388,7 +388,7 @@ persistence:
     accessMode: ReadWriteOnce
     # -- Existing Persistent Volume Claim (PVC) to use.
     #    Overrides `storageClassName`, `size` and `accessMode`.
-    # @section -- INCEpTION deployment settings 
+    # @section -- INCEpTION deployment settings
     existingClaim: ""
 
 # Network Policies settings.
@@ -448,11 +448,11 @@ mariadb:
     debug: false
 
   # MariaDB primary server settings.
-  primary: 
+  primary:
 
     # -- Extra environment variables to be set on MariaDB primary containers.
-    # @default -- Enforce a 4-byte UTF-8 character set and and a 
-    #             case sensitive collation according to the 
+    # @default -- Enforce a 4-byte UTF-8 character set and and a
+    #             case sensitive collation according to the
     #             [INCEpTION Administration Guide](https://inception-project.github.io/releases/33.5/docs/admin-guide.html#_prepare_database)
     # @section -- INCEpTION's database deployment settings
     extraEnvVars:
@@ -460,7 +460,7 @@ mariadb:
       value: "utf8mb4"
     - name: "MARIADB_COLLATE"
       value: "utf8mb4_bin"
-      
+
     # MariaDB service exposition settings.
     service:
       # Service ports settings.
@@ -480,7 +480,7 @@ mariadb:
     # -- Password for the new user, in plain text (**NOT RECOMMENDED FOR PRODUCTION**). Ignored if existing secret is provided.
     # @section -- INCEpTION's database deployment settings
     password: "t0t4llYSecreT"
-    # -- Use existing secret for password details (auth.rootPassword, auth.password, auth.replicationPassword will be ignored and picked up from this secret). 
+    # -- Use existing secret for password details (auth.rootPassword, auth.password, auth.replicationPassword will be ignored and picked up from this secret).
     #    The secret has to contain the keys `mariadb-root-password`, `mariadb-replication-password` and `mariadb-password`.
     # @section -- INCEpTION's database deployment settings
     existingSecret: ""
