@@ -64,7 +64,13 @@ jobs:
         values-file : ./values.yaml
         output-file: ./README.md
         template-files: ./README.md.gotpl
-        sort-order: file
+        sort-values-order: file
+
+    - name: Generate values schema json
+      uses: losisin/helm-values-schema-json-action@v1.5.3
+      with:
+        input: ./charts/inception/values.yaml
+        output: ./charts/inception/values.schema.json
 
 
   release:
