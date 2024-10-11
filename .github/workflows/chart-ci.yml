@@ -58,12 +58,12 @@ jobs:
         fetch-depth: 0
     
     - name: Helm-docs
-      uses: losisin/helm-docs-github-action@v1
+      uses: losisin/helm-docs-github-action@v1.3.3
       with:
         chart-search-root: ./charts/inception
-        values-file : ./charts/inception/values.yaml
-        output-file: ./charts/inception/README.md
-        template-files: ./charts/inception/README.md.gotpl
+        values-file : ./values.yaml
+        output-file: ./README.md
+        template-files: ./README.md.gotpl
         sort-order: file
 
 
